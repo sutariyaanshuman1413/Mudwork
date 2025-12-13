@@ -50,7 +50,7 @@ export const products: Product[] = [
   },
   {
     id: 'prod-4',
-    name: 'Desert Horizon',
+    name: 'Painting',
     description:
       'A minimalist representation of a desert landscape, this piece uses subtle shifts in texture and color to evoke a sense of vast, open space.',
     dimensions: '40" x 20"',
