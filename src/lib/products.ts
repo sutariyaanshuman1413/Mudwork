@@ -38,12 +38,12 @@ export const products: Product[] = [
   },
   {
     id: 'prod-3',
-    name: 'Fossil Fern',
+    name: 'Painting',
     description:
       'Delicate fern imprints are fossilized in this organic piece. It captures a fleeting moment in nature, bringing a touch of the outdoors inside.',
     dimensions: '18" x 30"',
     materials: 'White clay, natural pigments, preserved botanicals',
-    price: 280,
+    price: 500,
     imageId: 'mud-art-3',
     imageUrl:
       PlaceHolderImages.find(img => img.id === 'mud-art-3')?.imageUrl || '',
