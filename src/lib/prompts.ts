@@ -1,0 +1,17 @@
+export const prompts = [
+  'How come orange juice prices have dropped?',
+  "Give me ideas for what to do with my kids' art",
+  'Help me study vocabulary for a college entrance exam',
+  'How are oil prices impacting global energy markets',
+  'Test my knowledge on ancient civilizations',
+  'Write a text asking a friend to be my plus-one at a wedding',
+  'Help me pick an outfit that will look good on camera',
+  'Write an email to request a quote from local plumbers',
+  'Cycling groups open to beginners',
+  'Write a Python script to automate sending daily email reports',
+  "What's going on with the asteroid sample NASA brought back?",
+  'Create a morning routine to boost my productivity',
+  'Design a programming game to teach basics in a fun way',
+  'Explain nostalgia to a kindergartener',
+  'Create a content calendar for a TikTok account',
+];

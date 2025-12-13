@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 43 63% 88%;
+    --foreground: 20 14% 4%;
+    --card: 43 50% 92%;
+    --card-foreground: 20 14% 4%;
+    --popover: 43 50% 92%;
+    --popover-foreground: 20 14% 4%;
+    --primary: 14 70% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 135 17% 70%;
+    --secondary-foreground: 20 14% 4%;
+    --muted: 135 17% 80%;
+    --muted-foreground: 20 14% 35%;
+    --accent: 135 17% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 43 30% 78%;
+    --input: 43 40% 94%;
+    --ring: 14 70% 62%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 20 14% 4%;
+    --foreground: 43 63% 88%;
+    --card: 20 14% 8%;
+    --card-foreground: 43 63% 88%;
+    --popover: 20 14% 8%;
+    --popover-foreground: 43 63% 88%;
+    --primary: 14 70% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 135 17% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 135 17% 15%;
+    --muted-foreground: 43 63% 70%;
+    --accent: 135 17% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 14% 12%;
+    --input: 20 14% 10%;
+    --ring: 14 70% 62%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes scroll-x {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes scroll-x-reverse {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}

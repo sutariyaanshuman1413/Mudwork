@@ -1,0 +1,76 @@
+{
+  "placeholderImages": [
+    {
+      "id": "mud-art-1",
+      "description": "Abstract circular mud work piece with textured patterns.",
+      "imageUrl": "https://images.unsplash.com/photo-1706383884115-d84efe53b478?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhYnN0cmFjdCUyMGNsYXl8ZW58MHx8fHwxNzY0MjM3MTg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract clay"
+    },
+    {
+      "id": "mud-art-2",
+      "description": "Geometric square mud work with line art.",
+      "imageUrl": "https://images.unsplash.com/photo-1644270879521-16c03b519fea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z2VvbWV0cmljJTIwbXVkfGVufDB8fHx8MTc2NDIzNzE4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "geometric mud"
+    },
+    {
+      "id": "mud-art-3",
+      "description": "Organic flowing mud work with leaf imprints.",
+      "imageUrl": "https://images.unsplash.com/photo-1580036466463-3ad0fbf051bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b3JnYW5pYyUyMGNsYXl8ZW58MHx8fHwxNzY0MjM3MTg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "organic clay"
+    },
+    {
+      "id": "mud-art-4",
+      "description": "Minimalist rectangular mud work piece.",
+      "imageUrl": "https://images.unsplash.com/photo-1532690261466-909b35d13f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtaW5pbWFsaXN0JTIwYXJ0fGVufDB8fHx8MTc2NDE1ODI5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "minimalist art"
+    },
+    {
+      "id": "mud-art-5",
+      "description": "Set of three small mud work discs.",
+      "imageUrl": "https://images.unsplash.com/photo-1677591276151-e11ed2e307c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjbGF5JTIwZGlzY3N8ZW58MHx8fHwxNzY0MjM3MTg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clay discs"
+    },
+    {
+      "id": "mud-art-6",
+      "description": "Large arch-shaped mud work wall hanging.",
+      "imageUrl": "https://images.unsplash.com/photo-1631093376649-77a31d766e0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2xheSUyMGFyY2h8ZW58MHx8fHwxNzY0MjM3MTg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clay arch"
+    },
+    {
+      "id": "mud-art-7",
+      "description": "Rough textured circular mud piece with a hole in the center.",
+      "imageUrl": "https://images.unsplash.com/photo-1525468568166-6f2cd17c7ec9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cm91Z2glMjB0ZXh0dXJlfGVufDB8fHx8MTc2NDY1NDkwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rough texture"
+    },
+    {
+      "id": "mud-art-8",
+      "description": "Smooth, polished mudstone with dark veins.",
+      "imageUrl": "https://images.unsplash.com/photo-1694408655537-fca831ba891d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb2xpc2hlZCUyMHN0b25lfGVufDB8fHx8MTc2NDY1NDkwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "polished stone"
+    },
+    {
+      "id": "mud-art-9",
+      "description": "Wall decorated with an array of small, square mud tiles.",
+      "imageUrl": "https://images.unsplash.com/photo-1666114912221-377504f7a161?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtdWQlMjB0aWxlc3xlbnwwfHx8fDE3NjQ2NTQ5MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mud tiles"
+    },
+    {
+      "id": "mud-art-10",
+      "description": "A vase made from layered, different colored muds.",
+      "imageUrl": "https://images.unsplash.com/photo-1590605103416-230704277b05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2xheSUyMHZhc2V8ZW58MHx8fHwxNzY0NjU0OTAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clay vase"
+    },
+    {
+      "id": "mud-art-11",
+      "description": "A close-up of cracked mud texture.",
+      "imageUrl": "https://images.unsplash.com/photo-1579943048076-4d5b4a0e1e48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjcmFja2VkJTIwZWFydGh8ZW58MHx8fHwxNzY0NjU0OTAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cracked earth"
+    },
+    {
+      "id": "mud-art-12",
+      "description": "A spherical sculpture made of mud and straw.",
+      "imageUrl": "https://images.unsplash.com/photo-1754936019307-a6daef765da2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtdWQlMjBzY3VscHR1cmV8ZW58MHx8fHwxNzY0NjU0OTAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mud sculpture"
+    }
+  ]
+}
