@@ -31,7 +31,7 @@ export const products: Product[] = [
       'A modern, geometric design with clean lines and a minimalist aesthetic. This piece plays with light and shadow, creating a dynamic focal point.',
     dimensions: '30" x 30"',
     materials: 'Local riverbed clay, fine gravel',
-    price: 420,
+    price: 2000,
     imageId: 'mud-art-2',
     imageUrl:
       PlaceHolderImages.find(img => img.id === 'mud-art-2')?.imageUrl || '',
