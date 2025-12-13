@@ -28,7 +28,7 @@ export const products: Product[] = [
     id: 'prod-2',
     name: 'Mandala Art',
     description:
-      'A modern, geometric design with clean lines and a minimalist aesthetic. This piece plays with light and shadow, creating a dynamic focal point.',
+      'Mandala Art is a circular, symmetrical art form with repeating patterns, symbolizing balance, unity, and harmony. It is often used for meditation, relaxation, and creative expression.',
     dimensions: '30" x 30"',
     materials: 'Local riverbed clay, fine gravel',
     price: 2000,

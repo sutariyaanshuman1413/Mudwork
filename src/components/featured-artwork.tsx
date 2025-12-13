@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 
 export function FeaturedArtwork() {
   // Let's feature the "Earthen Arch" product
-  const featuredProduct = products.find(p => p.id === 'prod-6');
+  const featuredProduct = products.find(p => p.id === 'prod-2');
 
   if (!featuredProduct) {
     return null;
