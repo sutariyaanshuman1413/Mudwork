@@ -26,7 +26,7 @@ export const products: Product[] = [
   },
   {
     id: 'prod-2',
-    name: 'Linear Earth',
+    name: 'Mandala Art',
     description:
       'A modern, geometric design with clean lines and a minimalist aesthetic. This piece plays with light and shadow, creating a dynamic focal point.',
     dimensions: '30" x 30"',
