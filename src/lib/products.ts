@@ -14,12 +14,12 @@ export type Product = {
 export const products: Product[] = [
   {
     id: 'prod-1',
-    name: 'Terra Weave',
+    name: 'Ganesh Art',
     description:
       'An intricate piece featuring a woven texture, reminiscent of ancient textiles. Its warm, earthy tones bring a sense of comfort and history to any space.',
     dimensions: '24" x 36"',
     materials: 'Natural clay, sand, plant-based binders',
-    price: 350,
+    price: 1500,
     imageId: 'mud-art-1',
     imageUrl:
       PlaceHolderImages.find(img => img.id === 'mud-art-1')?.imageUrl || '',
