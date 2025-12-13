@@ -155,7 +155,7 @@ export function Gallery() {
               </DialogTrigger>
 
               {/* --- Modal Content --- */}
-              <DialogContent className="sm:max-w-[800px] bg-background  max-sm:pt-32">
+              <DialogContent className="sm:max-w-[800px] bg-background h-[100dvh] overflow-y-auto">
                 <div className="grid md:grid-cols-2 gap-6 items-start mx-auto">
                   <div className="aspect-[3/4] relative rounded-md overflow-hidden">
                     <Image
