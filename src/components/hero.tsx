@@ -22,7 +22,7 @@ export function Hero() {
       <div className="relative z-20 container px-4 md:px-6">
         <div className="max-w-3xl mx-auto space-y-4">
           <h1 className="text-4xl font-headline tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-foreground">
-            Art from the Earth by Anshuman
+            Art from the Earth
           </h1>
           <p className="text-lg md:text-xl text-foreground/80">
             Discover unique, handcrafted mud work pieces that bring natural
