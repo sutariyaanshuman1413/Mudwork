@@ -677,6 +677,10 @@ body {
   height: .875rem;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -799,6 +803,10 @@ body {
 
 .w-3\/4 {
   width: 75%;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .w-4 {
@@ -1296,6 +1304,10 @@ body {
   background-color: hsl(var(--background));
 }
 
+.bg-background\/50 {
+  background-color: hsl(var(--background) / .5);
+}
+
 .bg-background\/70 {
   background-color: hsl(var(--background) / .7);
 }
@@ -1682,6 +1694,10 @@ body {
   color: hsl(var(--muted-foreground));
 }
 
+.text-muted-foreground\/80 {
+  color: hsl(var(--muted-foreground) / .8);
+}
+
 .text-popover-foreground {
   color: hsl(var(--popover-foreground));
 }
@@ -2011,6 +2027,10 @@ body {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:border-primary:hover {
+  border-color: hsl(var(--primary));
 }
 
 .hover\:bg-accent:hover {

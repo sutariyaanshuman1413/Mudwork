@@ -22,12 +22,8 @@ import { Footer } from '@/components/footer';
 import { v4 as uuidv4 } from 'uuid';
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: 'Category name must be at least 2 characters.',
-  }),
-  description: z.string().min(10, {
-    message: 'Description must be at least 10 characters.',
-  }),
+  name: z.string().min(2, { message: 'Category name must be at least 2 characters.' }),
+  description: z.string().min(10, { message: 'Description must be at least 10 characters.' }),
 });
 
 export default function AddCategoryPage() {
@@ -40,21 +36,44 @@ export default function AddCategoryPage() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    debugger
     const newCategory = {
-      id: `cat-${uuidv4()}`,
       ...values,
     };
 
-    // For now, we'll just log it. We can add saving logic later.
-    console.log('New Category Created:', newCategory);
+    try {
+      const response = await fetch('https://your-dotnet-api.com/api/categories', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // If your API needs authentication, add the header:
+          // 'Authorization': 'Bearer YOUR_TOKEN',
+        },
+        body: JSON.stringify(newCategory),
+      });
 
-    toast({
-      title: 'Category Added (Console)',
-      description: `${newCategory.name} has been created and logged to the console.`,
-    });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to save category');
+      }
 
-    form.reset();
+      const savedCategory = await response.json();
+
+      toast({
+        title: 'Category Added',
+        description: `${savedCategory.name || newCategory.name} has been saved successfully.`,
+      });
+
+      form.reset();
+    } catch (error: any) {
+      console.error('Error saving category:', error);
+      toast({
+        title: 'Error',
+        description: error.message || 'There was an issue saving the category. Please try again.',
+        variant: 'destructive',
+      });
+    }
   }
 
   return (
@@ -73,10 +92,7 @@ export default function AddCategoryPage() {
             </div>
             <div className="mx-auto w-full max-w-2xl">
               <Form {...form}>
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="space-y-6"
-                >
+                <form onSubmit={form.handleSubmit(onSubmit)} className="spaces-y-6">
                   <FormField
                     control={form.control}
                     name="name"
@@ -93,6 +109,7 @@ export default function AddCategoryPage() {
                       </FormItem>
                     )}
                   />
+
                   <FormField
                     control={form.control}
                     name="description"
@@ -110,14 +127,8 @@ export default function AddCategoryPage() {
                     )}
                   />
 
-                  <Button
-                    type="submit"
-                    className="w-full"
-                    disabled={form.formState.isSubmitting}
-                  >
-                    {form.formState.isSubmitting
-                      ? 'Adding Category...'
-                      : 'Add Category'}
+                  <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+                    {form.formState.isSubmitting ? 'Adding Category...' : 'Add Category'}
                   </Button>
                 </form>
               </Form>

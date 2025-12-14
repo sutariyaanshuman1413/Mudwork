@@ -62,7 +62,7 @@ export const products: Product[] = [
   },
   {
     id: 'prod-5',
-    name: 'Clay Moons',
+    name: 'Painting',
     description:
       'A celestial-inspired triptych of textured discs. Arrange them to create your own lunar phase, adding a touch of cosmic wonder to your wall.',
     dimensions: '12" diameter (each)',

@@ -2,6 +2,7 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
@@ -27,9 +28,17 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { categories } from '@/lib/categories';
 import { v4 as uuidv4 } from 'uuid';
+import { Upload } from 'lucide-react';
+
+const MAX_FILE_SIZE = 4.5 * 1024 * 1024; // 4.5MB
+const ACCEPTED_IMAGE_TYPES = [
+  'image/jpeg',
+  'image/jpg',
+  'image/png',
+  'image/webp',
+];
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -47,16 +56,36 @@ const formSchema = z.object({
   materials: z.string().min(3, {
     message: 'Materials must be at least 3 characters.',
   }),
-  imageId: z.string({
-    required_error: 'Please select an image for the product.',
-  }),
+  image: z
+    .any()
+    .refine(files => files?.length == 1, 'Image is required.')
+    .refine(
+      files => files?.[0]?.size <= MAX_FILE_SIZE,
+      `Max file size is 4.5MB.`
+    )
+    .refine(
+      files => ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
+      '.jpg, .jpeg, .png and .webp files are accepted.'
+    ),
   categoryId: z.string({
     required_error: 'Please select a category.',
   }),
 });
 
+// Helper to read file as data URL
+function readFileAsDataURL(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 export default function AddProductPage() {
   const { toast } = useToast();
+  const [imagePreview, setImagePreview] = React.useState<string | null>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -65,40 +94,47 @@ export default function AddProductPage() {
       price: 0,
       dimensions: '',
       materials: '',
-      imageId: '',
+      image: undefined,
       categoryId: '',
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    const selectedImage = PlaceHolderImages.find(
-      img => img.id === values.imageId
-    );
+  const imageRef = form.register('image');
 
-    if (!selectedImage) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const imageFile = values.image[0];
+      const imageUrl = await readFileAsDataURL(imageFile);
+
+      const newProduct = {
+        id: `prod-${uuidv4()}`,
+        name: values.name,
+        description: values.description,
+        price: values.price,
+        dimensions: values.dimensions,
+        materials: values.materials,
+        categoryId: values.categoryId,
+        imageUrl,
+      };
+
+      // For now, we'll just log it. We can add saving logic later.
+      console.log('New Product Created:', newProduct);
+
+      toast({
+        title: 'Product Added (Console)',
+        description: `${newProduct.name} has been created and logged to the console.`,
+      });
+
+      form.reset();
+      setImagePreview(null);
+    } catch (error) {
+      console.error('Error creating product:', error);
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: 'Selected image not found. Please try again.',
+        description: 'Could not process the image. Please try again.',
       });
-      return;
     }
-
-    const newProduct = {
-      id: `prod-${uuidv4()}`,
-      ...values,
-      imageUrl: selectedImage.imageUrl,
-    };
-
-    // For now, we'll just log it. We can add saving logic later.
-    console.log('New Product Created:', newProduct);
-
-    toast({
-      title: 'Product Added (Console)',
-      description: `${newProduct.name} has been created and logged to the console.`,
-    });
-
-    form.reset();
   }
 
   return (
@@ -226,28 +262,60 @@ export default function AddProductPage() {
 
                   <FormField
                     control={form.control}
-                    name="imageId"
+                    name="image"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Artwork Image</FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select an image from the library" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            {PlaceHolderImages.map(image => (
-                              <SelectItem key={image.id} value={image.id}>
-                                {image.description} (
-                                {image.imageHint.split(' ').join(', ')})
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                        <FormControl>
+                          <div className="w-full">
+                            <label
+                              htmlFor="image-upload"
+                              className="group flex w-full cursor-pointer items-center justify-center rounded-md border-2 border-dashed border-input bg-background/50 p-6 transition-colors hover:border-primary"
+                            >
+                              {imagePreview ? (
+                                <div className="relative h-32 w-32">
+                                  <Image
+                                    src={imagePreview}
+                                    alt="Preview"
+                                    layout="fill"
+                                    objectFit="contain"
+                                    className="rounded-md"
+                                  />
+                                </div>
+                              ) : (
+                                <div className="text-center">
+                                  <Upload className="mx-auto h-10 w-10 text-muted-foreground" />
+                                  <p className="mt-2 text-sm text-muted-foreground">
+                                    Click to upload or drag & drop
+                                  </p>
+                                  <p className="text-xs text-muted-foreground/80">
+                                    PNG, JPG, WEBP up to 4.5MB
+                                  </p>
+                                </div>
+                              )}
+                            </label>
+                            <Input
+                              type="file"
+                              id="image-upload"
+                              accept={ACCEPTED_IMAGE_TYPES.join(',')}
+                              className="sr-only"
+                              {...imageRef}
+                              onChange={event => {
+                                field.onChange(event.target.files);
+                                const file = event.target.files?.[0];
+                                if (file) {
+                                  const reader = new FileReader();
+                                  reader.onloadend = () => {
+                                    setImagePreview(reader.result as string);
+                                  };
+                                  reader.readAsDataURL(file);
+                                } else {
+                                  setImagePreview(null);
+                                }
+                              }}
+                            />
+                          </div>
+                        </FormControl>
                         <FormDescription>
                           This image will be used for the product listing.
                         </FormDescription>
